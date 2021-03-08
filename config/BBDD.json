@@ -1,0 +1,105 @@
+{
+    "fintual" : {
+        "schema" : "fintual",
+        "tables" : {
+
+            "assets" : {
+                "name" : "assets",
+                "columns" : {
+                    "id"          : {"name" : "id",          "type" : "serial"},
+                    "name"        : {"name" : "name",        "type" : "varchar", "default" : "NULL"},
+                    "symbol"      : {"name" : "symbol",      "type" : "varchar", "default" : "NULL"},
+                    "category"    : {"name" : "category",    "type" : "varchar", "default" : "NULL"},
+                    "data_source" : {"name" : "data_source", "type" : "varchar", "default" : "NULL"}
+                    },
+                "unique" : ["id"],
+                "key" : "id",
+                "foreign" : {}
+                },
+
+            "funds" : {
+                "name" : "funds",
+                "columns" : {
+                    "id"         : {"name" : "id",          "type" : "serial"},
+                    "id_asset"   : {"name" : "id_asset",    "type" : "int",     "default" : "NULL"},
+                    "name"       : {"name" : "name",        "type" : "varchar", "default" : "NULL"},
+                    "symbol"     : {"name" : "symbol",      "type" : "varchar", "default" : "NULL"},
+                    "serie"      : {"name" : "serie",       "type" : "varchar", "default" : "NULL"},
+                    "start_date" : {"name" : "start_date",  "type" : "varchar", "default" : "NULL"},
+                    "last_date"  : {"name" : "last_date",   "type" : "varchar", "default" : "NULL"}
+                    },
+                "unique" : ["id"],
+                "key" : "id",
+                "foreign" : {
+                    "id_asset" : {"table" : "assets", "column" : "id", "update" : "cascade", "delete" : "cascade"}
+                    }
+                },
+                
+            "series" : 
+                {"name" : "series",
+                "columns" : {
+                    "id"        : {"name" : "id",       "type" : "varchar"},
+                    "id_fund"   : {"name" : "id_fund",  "type" : "int",     "default" : "NULL"},
+                    "name"      : {"name" : "name",     "type" : "varchar", "default" : "NULL"},
+                    "serie"     : {"name" : "serie",    "type" : "varchar", "default" : "NULL"},
+                    "date"      : {"name" : "date",     "type" : "date",    "default" : "NULL"},
+                    "price"     : {"name" : "price",    "type" : "numeric", "default" : "NULL"}
+                    },
+                "unique" : ["id"],
+                "key" : "id",
+                "foreign" : {
+                    "id_fund" : {"table" : "funds", "column" : "id", "update" : "cascade", "delete" : "cascade"}
+                    } 
+                },
+
+            "my_goals" : 
+                {"name" : "my_goals",
+                "columns" : {
+                    "id"        : {"name" : "id",           "type" : "int"},
+                    "name"      : {"name" : "name",         "type" : "varchar", "default" : "NULL"},
+                    "created"   : {"name" : "created",      "type" : "date", "default" : "NULL"}
+                    },
+                "unique" : ["id"],
+                "key" : "id",
+                "foreign" : {} 
+                },
+
+            "my_series" : 
+                {"name" : "my_series",
+                "columns" : {
+                    "id"            : {"name" : "id",         "type" : "varchar"}, 
+                    "id_goal"       : {"name" : "id_goal",    "type" : "int"},
+                    "name"          : {"name" : "name",       "type" : "varchar", "default" : "NULL"},
+                    "date"          : {"name" : "date",       "type" : "date",    "default" : "NULL"},
+                    "deposited"     : {"name" : "deposited",  "type" : "numeric", "default" : "NULL"},
+                    "profit"        : {"name" : "profit",     "type" : "numeric", "default" : "NULL"},
+                    "nav"           : {"name" : "nav",        "type" : "numeric", "default" : "NULL"}
+                    },
+                "unique" : ["id"],
+                "key" : "id",
+                "foreign" : {
+                    "id_goal" : {"table" : "my_goals", "column" : "id", "update" : "cascade", "delete" : "cascade"}
+                    } 
+                },
+
+            "my_investments" : 
+                {"name" : "my_investments",
+                "columns" : {
+                    "id"            : {"name" : "id",           "type" : "varchar"}, 
+                    "id_serie"      : {"name" : "id_serie",     "type" : "varchar"},
+                    "id_my_serie"   : {"name" : "id_my_serie",  "type" : "varchar"},
+                    "date"          : {"name" : "date",         "type" : "date",    "default" : "NULL"},
+                    "weight"        : {"name" : "weight",       "type" : "numeric",    "default" : "NULL"},
+                    "nav"           : {"name" : "nav",          "type" : "numeric",    "default" : "NULL"},
+                    "shares"        : {"name" : "shares",       "type" : "numeric",    "default" : "NULL"}
+                    },
+                "unique" : ["id"],
+                "key" : "id",
+                "foreign" : {
+                    "id_serie"    : {"table" : "series",    "column" : "id", "update" : "cascade", "delete" : "cascade"},
+                    "id_my_serie" : {"table" : "my_series", "column" : "id", "update" : "cascade", "delete" : "cascade"}
+                    } 
+                }
+            }  
+        }
+}

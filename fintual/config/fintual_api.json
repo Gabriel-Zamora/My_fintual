@@ -1,0 +1,8 @@
+{
+    "url" : "https://fintual.cl/api/", 
+    "assets" : "conceptual_assets",
+    "real" : "real_assets",
+    "goals" : "goals",
+    "user_email" : "FINTUAL_EMAIL",
+    "user_token" : "FINTUAL_TOKEN"
+}
