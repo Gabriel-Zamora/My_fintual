@@ -135,8 +135,6 @@ def get_my_investment(id_goal):
                                 BBDD['tables']['my_investments']['columns']['id_my_serie']['name'],
                                 BBDD['tables']['my_investments']['columns']['date']['name'],
                                 BBDD['tables']['my_investments']['columns']['weight']['name'],
-                                BBDD['tables']['my_investments']['columns']['nav']['name'],
-                                BBDD['tables']['my_investments']['columns']['shares']['name'],
                                 'id_fund'])
 
     url = f"{api['url']}{api['goals']}/{id_goal}?user_token={os.environ[api['user_token']]}&user_email={os.environ[api['user_email']]}"
@@ -158,8 +156,6 @@ def get_my_investment(id_goal):
                 BBDD['tables']['my_investments']['columns']['id_my_serie']['name']  : f"{my_investment['id']}-{date}",
                 BBDD['tables']['my_investments']['columns']['date']['name']         : date,
                 BBDD['tables']['my_investments']['columns']['weight']['name']       : my_investment['attributes']['investments'][i]['weight'],
-                BBDD['tables']['my_investments']['columns']['nav']['name']          : nav,
-                BBDD['tables']['my_investments']['columns']['shares']['name']       : None,
                 'id_fund'                                                           : f"{my_investment['attributes']['investments'][i]['asset_id']}",
             } ,ignore_index=True)
     

@@ -16,7 +16,8 @@ def save_assets():
 
 def save_funds():
 
-    assets = [2643,38,37,36]
+    assets = [2643,38,37,36,
+              25]
 
     for id_asset in assets:
         df = get_fund(id_asset)
@@ -64,11 +65,6 @@ def save_my_investment(id_goal):
         
         date = fund[BBDD['tables']['series']['columns']['date']['name']].values[0]
         df.loc[df['id_fund'] == id_fund, BBDD['tables']['my_investments']['columns']['id_serie']['name']] = f"{id_fund}-{date}"
-
-        nav = float(df[df['id_fund'] == id_fund][BBDD['tables']['my_investments']['columns']['nav']['name']].values[0])
-        price = float(fund[BBDD['tables']['series']['columns']['price']['name']].values[0])
-        shares = round(nav/price,4)
-        df.loc[df['id_fund'] == id_fund, BBDD['tables']['my_investments']['columns']['shares']['name']] = shares
 
     del df['id_fund']
 
