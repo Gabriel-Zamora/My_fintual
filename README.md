@@ -28,7 +28,12 @@ El modelo de datos se puede modificar editando el archivo [BBDD.json](config/BBD
 - My_series: Serie de tiempo de inversiones de usuario
 - My_investments: Serie de tiempo de fondos distribuidos que financian un objetivo de inversión
 
+## Configuración
+Configurar ruta donde se encuentra la carpeta del proyecto haciendo uso de una variable de entorno:
+```
+ROOT_PATH_FINTUAL="/home/user/folder/"
+```
 
 ## Script
-- Partida: Ejecutar [start.py](fintual/do/start.py) para crear base de datos, modelo de datos y guardar información pública actualizada.
-- Actualización: Ejecutar [update.py](fintual/do/update.py) para guardar información del día tanto pública como privada.
+- Partida: Ejecutar [start.py](fintual/do/start.py) para crear base de datos, modelo de datos y guardar información pública actualizada
+- Actualización: Ejecutar [update.py](fintual/do/update.py) para guardar información del día tanto pública como privada
