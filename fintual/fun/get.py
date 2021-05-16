@@ -146,7 +146,7 @@ def get_my_investment(id_goal):
     now = dt.datetime.now()
     date = f"{str(now.year).zfill(4)}-{str(now.month).zfill(2)}-{str(now.day).zfill(2)}"
 
-    for i in range(len(my_investment['attributes']['investments'][0])):
+    for i in range(len(my_investment['attributes']['investments'])):
         nav = round(my_investment['attributes']['investments'][i]['weight']*my_investment['attributes']['nav'],4)
 
         df = df.append(
