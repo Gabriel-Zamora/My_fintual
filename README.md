@@ -4,6 +4,15 @@ Script desarrollado en python que utiliza la [API](https://fintual.cl/api-docs/i
 
 La API permite acceder a informacíon actualizada de las inversiones de un usuario (mediante un token de acceso), pero no a su historia. Este script permite realizar consultas periodicas con el propósito de construir información historica de la evolución de una meta.
 
+## Ejemplo aplicación
+Esta información histórica se puede utilizar para hacer análisis periodico del rendimiento de distintos objetivos de inversión. A modo de ejemplo, el autor desarrolló un bot en discord para su uso personal que informa todos los días hábiles el rendimiento diario de los distintos objetivos, junto con los movimientos realizados el día anterior. 
+
+<p align="center">
+  <img src="discord_bot.png" width="300" title="discord_bot">
+</p>
+
+*Captura de pantalla de reporte del 24 de septiembre 2021 donde se incluye un giro del objetivo Independencia.*
+
 ## API
 [El API de Fintual](https://fintualist.com/chile/noticias/el-api-de-fintual/) cuenta con una parte pública y una parte privada, está última requiere contar con un token de acceso (revisar [documentación](https://fintual.cl/api-docs/index.html)). 
 
